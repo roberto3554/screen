@@ -1,4 +1,4 @@
-#include "screen.h"
+#include "../include/screen.h"
 #include <vector>
 #include <iostream>
 #include <string>
@@ -25,7 +25,7 @@ void Screen::addBorder(std::string bor) {
     return;
   }
   if(bor.size()<6){
-    std::cerr << "Error: mark debe tener al menos 3 caracteres." << std::endl;
+    std::cerr << "Error: border must have at least 6 characters." << std::endl;
     return;
   }
 
@@ -65,4 +65,11 @@ void Screen::addBorder(std::string bor) {
   screen  = newScreen;
   height  = newHeight;
   width   = newWidth;
+}
+
+void Screen::addChar(int x, int y, char c){
+  int off = 0;
+  if(border)
+    off = 1;
+  screen[y+off][x+off] = c;
 }

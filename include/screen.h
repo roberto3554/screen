@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include "controller.h"
 
 class Screen{
   private:
@@ -10,9 +11,11 @@ class Screen{
     int width, height;
     bool border;
   public:
+    Controller controller;
     Screen(int width, int height);
     void show();
     void addBorder(std::string bor = "#=##|#");
+    void addChar(int x, int y, char c);
 };
 
 #endif
